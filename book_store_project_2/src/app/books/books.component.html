@@ -2,15 +2,14 @@
 
 <ul *ngIf="isDisabled">
 
-    <li>
-        <img src="{{src1}}" alt="{{name1}}" width="100" />
-        {{book1}} by {{name1}}
+<ng-container *ngFor = "let book of books; let i = index">
+    <li class = "book">
+        <p class="Sno">{{i+1}}</p>
+        <img [src]="book.image" [alt]="book.name" width="100" />
+        <p class = "title">{{book.book | titlecase}} by {{book.name | titlecase}}</p>
+        <p class = "currency">{{book.amount | currency: 'INR'}}</p>
     </li>
-
-    <li>
-        <img src="{{src2}}" alt="{{name2}}" width="100" />
-       {{book2}} by {{name2}}
-    </li>
+</ng-container>
 
 </ul>
 
@@ -18,11 +17,8 @@
 
     <ng-container *ngIf = "isDisabled">Hide</ng-container>
     <ng-container *ngIf= "! isDisabled">Show</ng-container>
-    <!-- <span $#$#$#$#$#$# -->
 
 </button>
-
-<!--<button (click) = "handleClick()" [disabled]="isDisabled">Buy Books</button> -->
 
 <input type="text" [(ngModel)]="myname" />
 {{myname}}
