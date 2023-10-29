@@ -1,13 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Book } from '../Type/Book';
 // http://localhost:63511/
-interface Book{
-
-  name: string;
-  book: string;
-  image: string;
-  amount: string;
-  
-}
 
 @Component({
   selector: 'app-books',
@@ -15,7 +8,11 @@ interface Book{
   styleUrls: ['./books.component.css']
 })
 
-export class BooksComponent {
+export class BooksComponent implements OnInit {
+
+  ngOnInit(): void {
+    console.log("Inside Oninit");
+  }
 
   books: Book[] = [
 
@@ -49,20 +46,19 @@ export class BooksComponent {
   
 ];
   
+cart: Book[] =[];
+
+addToCart(book:Book){
+
+  console.log(book);
+
+}
+
   isDisabled: boolean = false;
-
   myname: String = "";
-
   showIt(event: any){  // for tow way binding old
 
     this.myname = event.target.value;
   }
-
-  // handleClick(){  alert('error....'); }
-
-  // toggleFn(){
-
-  //   this.isDisabled = ! this.isDisabled;
-  // }
 
 }
