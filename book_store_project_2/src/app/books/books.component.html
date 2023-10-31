@@ -1,21 +1,11 @@
 <h2 color:red>Choose your book</h2>
 
-<ul *ngIf="isDisabled">
+<ul *ngIf="isDisabled" class="flex flex-wrap justify-center">
 
-<ng-container *ngFor = "let singlebook of books">
+<ng-container *ngFor = "let singlebook of books; let i=index">
 
-    <app-book (bookEmitter) = "addToCart($event)" [book]= "singlebook"></app-book>
+    <app-book [book]= "singlebook" class="w-1/2 p-5 text-center"></app-book>
     
 </ng-container>
 
 </ul>
-
-<button (click) = "isDisabled = ! isDisabled">
-
-    <ng-container *ngIf = "isDisabled">Hide</ng-container>
-    <ng-container *ngIf= "! isDisabled">Show</ng-container>
-
-</button>
-
-<input type="text" [(ngModel)]="myname" />
-{{myname}}
