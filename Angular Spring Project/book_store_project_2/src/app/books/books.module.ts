@@ -4,13 +4,17 @@ import { BooksService } from './books.service';
 import { BooksComponent } from './books.component';
 import { BookComponent } from './book/book.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 @NgModule({
   declarations: [BooksComponent, BookComponent],
   providers: [BooksService],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   exports: [BooksComponent]
 })
